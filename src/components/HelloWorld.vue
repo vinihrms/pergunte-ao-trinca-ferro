@@ -8,6 +8,16 @@
         >vue-cli documentation</a
       >.
     </p>
+    <div>
+      <h1>Testar Função</h1>
+
+      <input v-model="a" placeholder="Valor 1" />
+      <input v-model="b" placeholder="Valor 2" />
+
+      <button @click="run">Executar</button>
+
+      <p v-if="resultado !== null">Resultado: {{ res }}</p>
+    </div>
     <h3>Installed CLI Plugins</h3>
     <ul>
       <li>
@@ -85,6 +95,18 @@
     </ul>
   </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+import rand from "../logic/rand";
+
+const a = ref("");
+const b = ref("");
+const res = ref(null);
+function run() {
+  res.value = rand(a.value, b.value);
+}
+</script>
 
 <script>
 export default {
