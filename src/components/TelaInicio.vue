@@ -1,6 +1,6 @@
 <template>
   <CabecalhoPagina />
-  <div class="formuario">
+  <div class="formulario">
     <FormularioOpcoes @consultar="$emit('consultar', $event)" />
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style scoped>
-.formuario {
+.formulario {
   display: flex;
   justify-content: center;
   align-items: center;
