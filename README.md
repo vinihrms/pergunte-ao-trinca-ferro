@@ -1,26 +1,25 @@
-# pergunte-ao-trinca-ferro
+# Pergunte ao Trinca-Ferro
 
+## Instalar
 
-teste
-## Project setup
-```
+```bash
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
+## Rodar o projeto
+
+```bash
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
+## Gerar a versão de produção
+
+```bash
 npm run build
 ```
 
-### Lints and fixes files
-```
+## Verificar o código
+
+```bash
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
