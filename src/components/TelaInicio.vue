@@ -1,7 +1,7 @@
 <template>
   <CabecalhoPagina />
   <div class="formuario">
-    <FormularioOpcoes />
+    <FormularioOpcoes @consultar="$emit('consultar', $event)" />
   </div>
 </template>
 
@@ -11,6 +11,7 @@ import FormularioOpcoes from "./FormularioOpcoes.vue";
 
 export default {
   name: "TelaInicial",
+  emits: ["consultar"],
   components: {
     CabecalhoPagina,
     FormularioOpcoes,

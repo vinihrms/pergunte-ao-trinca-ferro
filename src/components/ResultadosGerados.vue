@@ -1,12 +1,11 @@
 <template>
   <div class="resultados">
     <h2>Entre:</h2>
-    <form class="form-opcoes">
+    <div class="form-opcoes">
       <div class="mb-3">
         <input
           type="text"
-          placeholder="Opcao 1"
-          text
+          :value="a"
           class="form-control"
           id="opcao1"
           disabled
@@ -16,35 +15,53 @@
       <div class="mb-3">
         <input
           type="text"
-          placeholder="Opcao 2"
+          :value="b"
           class="form-control"
           id="opcao2"
           disabled
         />
       </div>
-    </form>
+    </div>
     <h2>O Trinca-Ferro escolheu:</h2>
-    <form class="form-opcoes">
+    <div class="form-opcoes">
       <div class="mb-3">
         <input
           type="text"
-          placeholder="Opcao 1"
-          text
+          :value="res"
           class="form-control"
-          id="opcao1"
+          id="resultado"
           disabled
         />
       </div>
-      <button type="submit" class="btn btn-success botao-consulta">
+      <button
+        type="button"
+        class="btn btn-success botao-consulta"
+        @click="$emit('consultar-novamente')"
+      >
         Fazer outra consulta
       </button>
-    </form>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "ResultadosGerados",
+  props: {
+    a: {
+      type: String,
+      required: true,
+    },
+    b: {
+      type: String,
+      required: true,
+    },
+    res: {
+      type: String,
+      required: true,
+    },
+  },
+  emits: ["consultar-novamente"],
 };
 </script>
 

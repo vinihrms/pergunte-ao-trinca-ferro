@@ -1,23 +1,34 @@
 <template>
-  <component :is="resultado ? TelaResultado : TelaInicio" />
+  <component
+    :is="res === null ? TelaInicio : TelaResultado"
+    :a="a"
+    :b="b"
+    :res="res"
+    @consultar="run"
+    @consultar-novamente="reiniciar"
+  />
 </template>
 
 <script setup>
 import { ref } from "vue";
-let resultado = ref(true);
-</script>
-
-<script>
+import rand from "./logic/rand";
 import TelaInicio from "./components/TelaInicio.vue";
 import TelaResultado from "./components/TelaResultado.vue";
 
-export default {
-  name: "App",
-  components: {
-    TelaInicio,
-    TelaResultado,
-  },
-};
+const a = ref("");
+const b = ref("");
+const res = ref(null);
+function run(opcoes) {
+  a.value = opcoes.a;
+  b.value = opcoes.b;
+  res.value = rand(a.value, b.value);
+}
+
+function reiniciar() {
+  a.value = "";
+  b.value = "";
+  res.value = null;
+}
 </script>
 
 <style>

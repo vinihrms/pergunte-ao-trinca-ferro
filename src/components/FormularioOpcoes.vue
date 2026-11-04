@@ -1,13 +1,13 @@
 <template>
-  <form class="form-opcoes">
+  <form class="form-opcoes" @submit.prevent="consultar">
     <div class="mb-3">
       <label for="opcao1" class="form-label">Opção 1</label>
-      <input type="name" class="form-control" id="opcao1" />
+      <input type="name" v-model="a" class="form-control" id="opcao1" />
     </div>
     <span class="versus">vs</span>
     <div class="mb-3">
       <label for="opcao2" class="form-label">Opção 2</label>
-      <input type="name" class="form-control" id="opcao2" />
+      <input type="name" v-model="b" class="form-control" id="opcao2" />
     </div>
     <button type="submit" class="btn btn-success">Consultar</button>
   </form>
@@ -16,6 +16,24 @@
 <script>
 export default {
   name: "FormularioOpcoes",
+
+  emits: ["consultar"],
+
+  data() {
+    return {
+      a: "",
+      b: "",
+    };
+  },
+
+  methods: {
+    consultar() {
+      this.$emit("consultar", {
+        a: this.a.trim(),
+        b: this.b.trim(),
+      });
+    },
+  },
 };
 </script>
 
